@@ -1,3 +1,5 @@
+include(${PROJECT_SOURCE_DIR}/cmake/MUSL.cmake)
+
 add_library(c2k_sockets
         STATIC
         sockets.cpp
@@ -23,3 +25,5 @@ if (WIN32)
 endif ()
 
 target_link_libraries(c2k_sockets PRIVATE ${SOCKET_LIBRARIES} c2k_sockets_options)
+
+check_musl(c2k_sockets)
